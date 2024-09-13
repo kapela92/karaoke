@@ -1,0 +1,45 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+//---------------------------------------------------------------------------
+USEFORM("Karaoke.cpp", Karaokee);
+USEFORM("Wizytowka.cpp", Wiz);
+USEFORM("Srodowisko.cpp", Srod);
+USEFORM("Aktualizuj.cpp", Aktu);
+USEFORM("odtwarza.cpp", Leci);
+USEFORM("Pomocnik2.cpp", Pomoc2);
+USEFORM("Pomocnik1.cpp", Pomoc1);
+//---------------------------------------------------------------------------
+WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
+{
+        try
+        {
+                 Application->Initialize();
+                 Application->CreateForm(__classid(TKaraokee), &Karaokee);
+                 Application->CreateForm(__classid(TWiz), &Wiz);
+                 Application->CreateForm(__classid(TSrod), &Srod);
+                 Application->CreateForm(__classid(TAktu), &Aktu);
+                 Application->CreateForm(__classid(TLeci), &Leci);
+                 Application->CreateForm(__classid(TPomoc2), &Pomoc2);
+                 Application->CreateForm(__classid(TPomoc1), &Pomoc1);
+                 Application->Run();
+        }
+        catch (Exception &exception)
+        {
+                 Application->ShowException(&exception);
+        }
+        catch (...)
+        {
+                 try
+                 {
+                         throw Exception("");
+                 }
+                 catch (Exception &exception)
+                 {
+                         Application->ShowException(&exception);
+                 }
+        }
+        return 0;
+}
+//---------------------------------------------------------------------------
